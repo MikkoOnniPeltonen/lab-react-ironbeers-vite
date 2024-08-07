@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    justify-content: center;
+    background-color: blanchedalmond;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+.form-div {
+    background-color: floralwhite;
+}
