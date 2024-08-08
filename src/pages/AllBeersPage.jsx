@@ -7,6 +7,7 @@ import { Card, Col } from 'antd'
 function AllBeersPage() {
 
     const [beers, setBeers] = useState([])
+    const [searchBeers, setSearchBeers] = useState('')
 
     useEffect(() => {
 
@@ -20,7 +21,22 @@ function AllBeersPage() {
         })
     }, [])
 
+    useEffect(() => {
+        axios.get(`https://ih-beers-api2.herokuapp.com/beers/search?q=${searchBeers}`)
+        .then((response) => {
+            setBeers(response.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [searchBeers])
+
     return (
+        <div>
+        <label>
+            <b>Search for a beer:</b>
+            <input type="text" value={searchBeers} onChange={(e) => {setSearchBeers(e.target.value)}}/>
+        </label>
         <Col className='beer-catalogue'>
             {beers && beers.map((oneBeer) => {
 
@@ -40,6 +56,7 @@ function AllBeersPage() {
                 )
             })}
         </Col>
+        </div>
     )
 }
 

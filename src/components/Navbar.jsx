@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import homeIconImgUrl from '../assets/home-icon.png'
 
-function Navbar() {
 
+function Navbar() {
 
     return (
         <header>
